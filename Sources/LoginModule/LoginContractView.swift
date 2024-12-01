@@ -4,7 +4,7 @@
 //
 //  Created by Vikash Anand on 01/12/24.
 //
-import SwiftUICore
+import SwiftUI
 
 public protocol LoginContractView: View {
     associatedtype V: View
@@ -16,6 +16,17 @@ struct LoginContractView_Type1: LoginContractView {
     var body: some View {
         VStack {
             Text("LoginView - Type 1")
+            Spacer()
+            HStack {
+                Button("Sign In") {
+                    loginActionCallback?.action(.signInTapped)
+                }
+                Spacer()
+                Button("Forgot Password") {
+                    loginActionCallback?.action(.forgotPasswordTapped)
+                }
+            }
+            .padding(.bottom, 32)
         }
     }
 }
